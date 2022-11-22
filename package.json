@@ -1,0 +1,23 @@
+{
+  "name": "mcs-discord-bot",
+  "version": "0.0.1",
+  "description": "A Discord bot that will be used in the MCS server.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ruisus/mcs-discord-bot.git"
+  },
+  "author": "Ruisus",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ruisus/mcs-discord-bot/issues"
+  },
+  "homepage": "https://github.com/Ruisus/mcs-discord-bot#readme",
+  "dependencies": {
+    "discord": "^0.8.2",
+    "dotenv": "^16.0.3"
+  }
+}
