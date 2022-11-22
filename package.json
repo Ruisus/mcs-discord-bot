@@ -18,6 +18,8 @@
   "homepage": "https://github.com/Ruisus/mcs-discord-bot#readme",
   "dependencies": {
     "discord": "^0.8.2",
+    "discord.js": "^14.6.0",
     "dotenv": "^16.0.3"
-  }
+  },
+  "keywords": []
 }
