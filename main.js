@@ -1,17 +1,21 @@
-const {Client, GatewayIntentBits, EmbedBuilder, PermissionsBitField, Permissions } = require('discord.js');
+const {Client, GatewayIntentBits, EmbedBuilder, PermissionsBitField, Permissions, Collection } = require('discord.js');
 const Discord = require("discord.js");
-const { ActivityType } = require('discord.js');
 require("dotenv").config()
 
-const client = new Discord.Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent, GatewayIntentBits.GuildMembers] });
+const client = new Discord.Client({ intents:[
+    GatewayIntentBits.Guilds, 
+    GatewayIntentBits.GuildMessages, 
+    GatewayIntentBits.MessageContent, 
+    GatewayIntentBits.GuildMembers
+    ]});
+
+client.commands = new Collection();
+
+module.exports = client;
 
 const prefix = '$'
 
-//This prints that the Bot is logged in as its Discord username and tag in the terminal and when it is online it will show its activity as listed below
-client.on("ready", () => {
-    console.log(`Logged in as ${client.user.tag}`)
-    client.user.setActivity('MPS 23 | REBORN', { type: ActivityType.Playing });
-})
+require("./handler/main");
 
 // When user sends the message 'hi' the bot will reply to the user with 'hello world!'
 client.on("messageCreate", (message) => {
@@ -37,26 +41,6 @@ client.on("guildMemberAdd", (member) =>{
 
     channel.send(message)
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
