@@ -4,7 +4,8 @@
   "description": "A Discord bot that will be used in the MCS server.",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon main.js"
   },
   "repository": {
     "type": "git",
@@ -20,6 +21,7 @@
     "discord": "^0.8.2",
     "discord.js": "^14.6.0",
     "dotenv": "^16.0.3",
+    "mongoose": "^6.7.3",
     "nodemon": "^2.0.20"
   },
   "keywords": []
