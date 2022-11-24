@@ -1,6 +1,8 @@
 const {Client, GatewayIntentBits, EmbedBuilder, PermissionsBitField, Permissions, Collection } = require('discord.js');
 const Discord = require("discord.js");
 require("dotenv").config()
+const mongoose = require("mongoose");
+const User = require("./models/UserSchema");
 
 const client = new Discord.Client({ intents:[
     GatewayIntentBits.Guilds, 
@@ -42,8 +44,33 @@ client.on("guildMemberAdd", (member) =>{
     channel.send(message)
 })
 
+mongoose.connect(process.env.SRV,{
+    useNewUrlParser: true, 
+    useUnifiedTopology: true 
+}, err => {
+    if(err) throw err;
+    console.log("Connected to the database!!!")
+});
 
+// let server = message.guild.id;
 
+client.on("messageCreate", async (message) => {
+    if(!message.author.id == "1043728455193342032"){
+     const newUser = await User.create({
+    username: message.author.username,
+    discordId: message.author.id,
+    serverId: message.guild.id,
+    });}
+    //const savedUser = await newUser.save();
+});
+
+client.on("guildMemberAdd", async (member) =>{
+    const newMember = await User.create({
+        username: member.user.username,
+        discordId: member.id,
+        serverId: member.guild.id,
+    });
+});
 
 
 
