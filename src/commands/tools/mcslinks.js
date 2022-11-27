@@ -8,7 +8,6 @@ module.exports = {
         const embed = new EmbedBuilder()
             .setTitle('LINKS')
             .setColor(0x8A250F)
-            .setTimestamp(Date.now())
             .setAuthor({
                 iconURL: client.user.displayAvatarURL(),
                 name: "MCS | Modified Competitive Soccer"
@@ -26,11 +25,6 @@ module.exports = {
                  
                  `
             )
-            .setFooter({
-                iconURL: client.user.displayAvatarURL(),
-                text: client.user.tag
-            })
-
         await interaction.reply({
             embeds: [embed]
         });
