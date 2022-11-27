@@ -31,20 +31,6 @@ for (const file of functionFiles)
 client.handleEvents();
 client.handleCommands();
 
-
-// When user sends the message 'hi' the bot will reply to the user with 'hello world!'
-client.on("messageCreate", (message) => {
-    if (message.content == "hi")
-        message.reply("hello world!")
-})
-
-// When user sends the message 'MCS' the bot will reply to the user with 'is the best!'
-client.on("messageCreate", (message) => {
-    if (message.content == "MCS")
-        message.reply("is the best!")
-})
-
-
 // Whenever a new user joins the server a welcome message will appear in the welcome channel and will ping the new usernode
 client.on("guildMemberAdd", (member) => {
 
