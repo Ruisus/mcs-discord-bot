@@ -22,6 +22,8 @@ module.exports = {
                  [World Cup Spreadsheet](https://docs.google.com/spreadsheets/d/1gcLxOXZDPjhXNU_-sK1tsqESics5Ti5q1sJBJzBlH00/edit?usp=sharing)
 
                  [Discord Link] https://discord.gg/2HNP4GzBYe
+
+                 [Media Server Link] https://discord.gg/EDkzRFf7nk
                  
                  `
             )
