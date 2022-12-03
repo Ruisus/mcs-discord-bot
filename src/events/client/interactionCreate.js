@@ -1,4 +1,4 @@
-const { ButtonComponent, Client } = require("discord.js");
+const { ButtonComponent, Client, InteractionCollector } = require("discord.js");
 
 module.exports = {
     name: 'interactionCreate',
@@ -18,9 +18,7 @@ module.exports = {
                     ephemeral: true
                 });
             }
-        }
-        
-        else if (interaction.isButton()) {
+        } else if (interaction.isButton()) {
             const { buttons } = client;
             const { customId } = interaction;
             const button = buttons.get(customId);
@@ -31,6 +29,18 @@ module.exports = {
             } catch (err) {
                 console.error(err);
             }
+        } else if (interaction.isSelectMenu()) {
+            const { selectMenus } = client;
+            const { customId } = interaction;
+            const menu = selectMenus.get(customId);
+            if (!menu) return new Error("There is no code for this select menu.");
+
+            try {
+                await menu.execute(interaction, client);
+            } catch (err) {
+                console.error(err);
+            }
+
         }
     },
 };
