@@ -18,6 +18,7 @@ const client = new Discord.Client({
 });
 
 client.commands = new Collection();
+client.buttons = new Collection();
 client.commandArray = [];
 
 const functionFolders = fs.readdirSync(`./src/functions`);
@@ -30,6 +31,7 @@ for (const file of functionFiles)
 
 client.handleEvents();
 client.handleCommands();
+client.handleComponents();
 
 // Whenever a new user joins the server a welcome message will appear in the welcome channel and will ping the new usernode
 client.on("guildMemberAdd", (member) => {
